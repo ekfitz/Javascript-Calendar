@@ -92,55 +92,38 @@ var oct = [...oct20S, ...oct20E];
 var nov = [...nov20S, ...nov20E];
 var dec = [...dec20S, ...dec20M, ...dec20E];
 
-var dbox = ["day1", "day2", "day3", "day4", "day5", "day6", "day7", "day8", "day9", "day10", "day11", "day12", "day13", "day14", "day15", "day16", "day17", "day18", "day19", "day20", "day21", "day22", "day23", "day24", "day25", "day26", "day27", "day28", "day29", "day30", "day31", "day32", "day33", "day34", "day35"];
-var dtb = ["date1", "date2"];
+var d = new Date();
+var thisMonth = d.getMonth();
 
-var day1;
-var day2;
-var day3;
-var day4;
-var day5;
+// [top, left];
+var day1 = ["0%", "0%"];
+var day2 = ["0%", "14.29%"];
 
-var dt1;
-var dt2;
-var dt3;
-var dt4;
-var dt5;
+var date1 = firstDay;
 
-document.body.onload = addElement();
-//addMore(dbox[1], dtb[1]);
-//addMore(dbox[2], dtb[2]);
+addElement(day1, day1[0], day1[1]);
+addElement(day2, day2[0], day2[1]);
+addText(date1, firstDay);
 
-addMore(day2, dt2);
-
-function addElement() {
-  var day1 = document.createElement("div");
-  var date1 = document.createTextNode(dec);
-  day1.appendChild(date1);
+// (x = day1, t = day1[0], l = day1[1]);
+function addElement(x, t, l) {
+  x = document.createElement("div");
 
   var calendar = document.getElementById("calendar");
-  calendar.appendChild(day1);
-  day1.className = "days";
-}
-
-// x = dbox[0], y = [dtb[0]];
-function addMore(x, y) {
-  x = document.createElement("div");
-  y = document.createTextNode(feb);
-  x.appendChild(y);
-
-  var day1 = document.getElementById("day1");
   calendar.appendChild(x);
-  calendar.insertAfter(x, day1);
-
-  x.className = "nodays";
+  x.className = "days";
+  x.style.top = t;
+  x.style.left = l;
 }
 
-//function addDivs() {
-//  var day1 = document.createElement("div");
-//  var date1 = document.createTextNode(feb);
-//  day1.appendChild(date1);
-//  calendar.appendChild(day1);
-//  day1.className = "days";
-//  document.body.insertAfter(day1, newDays)
-//}
+// (x = date1, y = firstDay);
+function addText(x) {
+  x = document.createTextNode(10);
+  day1.appendChild(x);
+}
+
+function firstDay() {
+  if (thisMonth == 10) {
+    return nov19[0];
+  }
+}
