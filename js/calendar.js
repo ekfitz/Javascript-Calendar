@@ -91,8 +91,7 @@ var sep = [...sep20S, ...sep20M, ...sep20E];
 var oct = [...oct20S, ...oct20E];
 var nov = [...nov20S, ...nov20E];
 var dec = [...dec20S, ...dec20M, ...dec20E];
-document.body.onload = addElement();
-
+document.body.onload = addElement(), addDivs();
 
 // x = day1;
 function addElement() {
@@ -109,9 +108,9 @@ function addElement() {
 
 function addDivs() {
   var day1 = document.createElement("div");
-  var date1 = document.createTextNode(dec);
+  var date1 = document.createTextNode(feb);
   day1.appendChild(date1);
   calendar.appendChild(day1);
   day1.className = "days";
-  document.body.insertAfter()
+  document.body.insertAfter(day1, newDays)
 }
